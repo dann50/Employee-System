@@ -1,0 +1,37 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/api/v1/auth/**
+              filters:
+                - StripPrefix=2
+            - id: employee-service
+              uri: lb://employee-service
+              predicates:
+                - Path=/api/v1/employees/**
+              filters:
+                - StripPrefix=2
+            - id: department-service
+              uri: lb://employee-service
+              predicates:
+                - Path=/api/v1/departments/**
+              filters:
+                - StripPrefix=2
+
+          discovery:
+            locator:
+              enabled: true
+
+
+application:
+  security:
+    jwt:
+      secret-key: X31gc1iOEiB4CxbKVKGm0wJSjOGiVB/w3i1JqxUBLDc=
+
+server:
+  port: 8222

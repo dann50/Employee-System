@@ -1,0 +1,34 @@
+
+spring:
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/employee_auth_database
+    username: demo
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: auth-service-group
+
+#swagger ui
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    url: /v3/api-docs
+
+# JWT Configuration
+application:
+  security:
+    jwt:
+      secret-key: X31gc1iOEiB4CxbKVKGm0wJSjOGiVB/w3i1JqxUBLDc=
+      expiration: 86400000
+      refresh-token:
+        expiration: 604800000
+
+server:
+  port: 8081
