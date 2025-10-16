@@ -27,13 +27,21 @@ The system consists of five microservices:
 - Eureka for discovery
 - Swagger for API documentation
 - Asynchronous communication using Kafka. When a new employee is created, an event is published to notify other services.
-- Docker for containerization
 
 ### How to use
-You can log in using the following details:
-- As an admin - email: `admin123@email.com`, password: `Pass1234`
-- As a manager - email: `manager123@email.com`, password: `Pass1234`
-- As a user - email: `user123@email.com`, password: `Pass1234`
+- Prerequisites
+  - Have PostgreSQL installed.
+  - Have Kafka installed. Make sure it's reachable from localhost:9092
+- Start the config server and Service discovery
+- Start kafka server.
+- Start the remaining services api-gateway, auth-service and employee-service
+- You can log in at `GET localhost:8222/api/v1/departments` using the following details:
+  - As an admin - email: `admin123@email.com`, password: `Pass1234`
+  - As a manager - email: `manager123@email.com`, password: `Pass1234`
+  - As a user - email: `user123@email.com`, password: `Pass1234`
+- For Swagger API docs go to:
+  - `localhost:8081/swagger-ui/index.html` for the authentication service
+  - `localhost:8082/swagger-ui/index.html` for the employee management service
 
 Note: The gateway runs in port 8222 and routes all requests route to the respective microservices. It assumes you always go through the gateway.
 When deleting a department, to avoid cascading issues, the system would only perform the operation if there are no employees in it.
@@ -59,7 +67,7 @@ When deleting a department, to avoid cascading issues, the system would only per
     ]
     ```
 - View employees in my department
-  - Request `GET localhost:8222/api/v1/departments` (logged in as a manager)
+  - Request `GET localhost:8222/api/v1/employees/my-department` (logged in as a manager)
   - Response:
     ```
     [
