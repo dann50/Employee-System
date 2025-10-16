@@ -26,7 +26,7 @@ The system consists of five microservices:
 - PostgreSQL (with Flyway for migrations)
 - Eureka for discovery
 - Swagger for API documentation
-- Asynchronous communication using Kafka. When a new employee is created, an event is published to notify other services.
+- Kafka for event streaming.
 
 ### How to use
 - Prerequisites
