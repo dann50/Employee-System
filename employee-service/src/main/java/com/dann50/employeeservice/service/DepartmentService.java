@@ -44,7 +44,7 @@ public class DepartmentService {
         List<Department> depts = departmentRepository.findAll();
         List<DepartmentInfo> departmentInfos = new ArrayList<>();
         for (Department d : depts) {
-            if (d.isActive()) {
+            if (!d.isActive()) {
                 departmentInfos.add(new DepartmentInfo(0, null, null, 0));
                 continue;
             }
