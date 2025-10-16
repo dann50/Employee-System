@@ -55,15 +55,16 @@ When deleting a department, to avoid cascading issues, the system would only per
       {
         "id": 2,
         "name": "devops",
-        "description": "This department is responsible for platform reliability and scaling",
+        "description": "This department ...",
         "numberOfEmployees": 30
       },
       {
         "id": 2,
         "name": "customer service",
-        "description": "This department is responsible for attending to needs of end users",
+        "description": "This department ...",
         "numberOfEmployees": 18
-      }
+      },
+      ...
     ]
     ```
 - View employees in my department
@@ -83,7 +84,7 @@ When deleting a department, to avoid cascading issues, the system would only per
         "phone": "+99887377",
         // other data
       },
-      // ...
+      ...
     ]
     ```
 
