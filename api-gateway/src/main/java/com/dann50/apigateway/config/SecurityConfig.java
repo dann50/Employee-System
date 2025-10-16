@@ -40,9 +40,7 @@ public class SecurityConfig {
             .csrf(c -> c.disable())
             .authorizeExchange(exchangeSpec ->
                 exchangeSpec
-                    .pathMatchers("/api/v1/auth/**").permitAll()
-                    .pathMatchers("/api/v1/employees/**").permitAll()
-                    .pathMatchers("/api/v1/departments/**").permitAll()
+                    .pathMatchers("/api/v1/auth/login", "/api/v1/auth/refresh").permitAll()
                     .anyExchange().authenticated()
             )
             .addFilterAt(authFilter, SecurityWebFiltersOrder.AUTHENTICATION);
